@@ -1,0 +1,27 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MapTest2", "MapTest2\MapTest2.csproj", "{30E937FC-95F8-4EF3-960D-7D02B8B5AC20}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|iPhoneSimulator = Debug|iPhoneSimulator
+		Release|iPhone = Release|iPhone
+		Release|iPhoneSimulator = Release|iPhoneSimulator
+		Debug|iPhone = Debug|iPhone
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{30E937FC-95F8-4EF3-960D-7D02B8B5AC20}.Debug|iPhoneSimulator.ActiveCfg = Debug|iPhoneSimulator
+		{30E937FC-95F8-4EF3-960D-7D02B8B5AC20}.Debug|iPhoneSimulator.Build.0 = Debug|iPhoneSimulator
+		{30E937FC-95F8-4EF3-960D-7D02B8B5AC20}.Release|iPhone.ActiveCfg = Release|iPhone
+		{30E937FC-95F8-4EF3-960D-7D02B8B5AC20}.Release|iPhone.Build.0 = Release|iPhone
+		{30E937FC-95F8-4EF3-960D-7D02B8B5AC20}.Release|iPhoneSimulator.ActiveCfg = Release|iPhoneSimulator
+		{30E937FC-95F8-4EF3-960D-7D02B8B5AC20}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
+		{30E937FC-95F8-4EF3-960D-7D02B8B5AC20}.Debug|iPhone.ActiveCfg = Debug|iPhone
+		{30E937FC-95F8-4EF3-960D-7D02B8B5AC20}.Debug|iPhone.Build.0 = Debug|iPhone
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		Policies = $0
+		$0.VersionControlPolicy = $1
+	EndGlobalSection
+EndGlobal
