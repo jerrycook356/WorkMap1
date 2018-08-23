@@ -11,6 +11,9 @@ namespace MapTest2
     public partial class ViewController : UIViewController
     {
       static  List<CoalAnnotation> annots = new List<CoalAnnotation>();
+        MapDelegate mapDelegate;
+        LocalStorageList storage = new LocalStorageList();
+
         protected ViewController(IntPtr handle) : base(handle)
         {
             // Note: this .ctor should not contain any initialization logic.
@@ -19,14 +22,18 @@ namespace MapTest2
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
+
             // map centered on lockwood
             CLLocationCoordinate2D coords = new CLLocationCoordinate2D(38.32515865003414, -82.57881700040785);
             MKCoordinateSpan span = new MKCoordinateSpan(MilesToLatitudeDegrees(.15), MilesToLongitudeDegrees(.15, coords.Latitude));
             MapView.Region =new  MKCoordinateRegion(coords, span);
             MapView.MapType = MKMapType.Satellite;
 
+            mapDelegate = new MapDelegate();
+            MapView.Delegate = mapDelegate;
+
             // tap to add pin after info is entered into infor screen 
-            UILongPressGestureRecognizer tap = new UILongPressGestureRecognizer(Tapper);
+            UITapGestureRecognizer tap = new UITapGestureRecognizer(Tapper);
             View.AddGestureRecognizer(tap);
 
             //fill map with previously made annotations
@@ -68,27 +75,37 @@ namespace MapTest2
         {
             ViewChanger changer = new ViewChanger(this, "AddInfo");
         }
-        void Tapper(UILongPressGestureRecognizer press)
+
+        void Tapper(UITapGestureRecognizer press)
         {
             StockpileInfo info = new StockpileInfo();
             var pixelLocation = press.LocationInView(MapView);
             var geoLocation = MapView.ConvertPoint(pixelLocation, MapView);
             var stockpile = info.getStockPileNumber();
             var company = info.getCompany();
-            CoalAnnotation coalAn = new CoalAnnotation(stockpile, company, geoLocation);
-            coalAn.IncrementId();
-            annots.Add(coalAn);
+            if ((!string.IsNullOrEmpty(stockpile)) && (!string.IsNullOrEmpty(company))) 
+            {
+                CoalAnnotation coalAn = new CoalAnnotation(stockpile, company, geoLocation);
+                coalAn.IncrementId();
+                storage.AddAnnotation(coalAn);
 
-            MapView.AddAnnotation(coalAn);
+                MapView.AddAnnotation(coalAn);
+                info.Clear();
+            }
         }
        public void FillMap()
         {
+
+            annots = storage.GetAllAnnotations();
+
             foreach(var annotation in annots)
 
             {
                 MapView.AddAnnotation(annotation);
             }
         }
+
+       
 
     }
 }

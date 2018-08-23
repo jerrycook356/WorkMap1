@@ -42,6 +42,9 @@ namespace MapTest2
             }
         }
         public override string Subtitle => company;
-
+        public double GetId()
+        {
+            return id;
+        }
     }
 }

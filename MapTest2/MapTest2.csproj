@@ -112,6 +112,8 @@
     <Compile Include="ViewChanger.cs" />
     <Compile Include="StockpileInfo.cs" />
     <Compile Include="CoalAnnotation.cs" />
+    <Compile Include="MapDelegate.cs" />
+    <Compile Include="LocalStorageList.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>

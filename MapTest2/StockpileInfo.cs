@@ -40,5 +40,11 @@ namespace MapTest2
         {
             return coord;
         }
+
+        public void Clear()
+        {
+            stockpileNumber = null;
+            company = null;
+        }
     }
 }
